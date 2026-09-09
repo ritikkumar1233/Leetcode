@@ -1,28 +1,22 @@
 #include<iostream>
-#include<queue>
+#include<vector>
 using namespace std;
 
 int firstUniqCh(string s){
-    queue<char> q;
-    int ans = 0;
+    vector<int> freq(26);
+    for(char ch : s){
+        freq[ch - 97]++;
+    }
     for(int i = 0; i<s.length(); i++){
-        char ch = s[i];
-        if(!q.empty() && ch == q.front()){
-            q.pop();
-            ans++;
-        }
-        else{
-            q.push(ch);
+        if(freq[s[i] - 97] == 1){
+            return i;
         }
     }
-    if(q.empty()){
-        return -1;
-    }
-    return ans;
+    return -1;
 }
 
 int main(){
-    string s = "xxyz";
+    string s = "aabb";
     int ans = firstUniqCh(s);
-    cout<<ans;
+    cout<<endl<<ans;
 }
