@@ -1,3 +1,4 @@
-for(int i = 0; i<n; i++){
-    //     res[pos[i]] = deck[i];
+if(columnNumber <= 26){
+    //     ans += t[columnNumber % 26];
+    //     return ans;
     // }
