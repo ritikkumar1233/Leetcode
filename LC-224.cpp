@@ -7,18 +7,46 @@ using namespace std;
 
 int calculate(string s){
     stack<int> st;
-    int i = 0;
-    while(i < s.size()){
-        char ch = s[i];
-        st.push(ch - '0');
-        i++;
-        cout<<st.top()<<endl;
+    int number = 0;
+    int result = 0;
+    int sign = 1;
+    for(char ch : s){
+        if(ch >= '0' && ch <= '9'){
+            number = number * 10 +(ch - '0');
+        }
+        else if(ch == '+'){
+            result += sign * number;
+            sign = 1;
+            number = 0;
+        }
+        else if(ch == '-'){
+            result += sign * number;
+            sign = -1;
+            number = 0;
+        }
+        else if(ch == '('){
+            st.push(result);
+            st.push(sign);
+            result = 0;
+            sign = 1;
+        }
+        else if(ch == ')'){
+            result += sign * number;
+            number = 0;
+            int oSign = st.top();
+            st.pop();
+            int oResult = st.top();
+            st.pop();
+            result = oResult + (oSign * result);
+        }
+        cout<<number<<" "<<result<<endl;
     }
-    return 1;
+    result += sign * number;
+    return result;
 }
 
 int main(){
-    string s = "(1 + 2)";
+    string s = "-2147483648";
     // string s = "(1+(4+5+2)-3)+(6+8)";
     int ans = calculate(s);
     cout<<ans;
