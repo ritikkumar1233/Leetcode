@@ -7,6 +7,7 @@ using namespace std;
 
 string evaluate(string s, vector<vector<string>>& knowledge){
     vector<string> res;
+    string str;
     int i = 0;
     while(i < s.length()){
         string word = "";
@@ -17,12 +18,14 @@ string evaluate(string s, vector<vector<string>>& knowledge){
                 i++;
             }
             res.push_back(word);
+            i++;
         }
         else{
+            str += s[i];
             i++;
         }
     }
-
+    return str;
 }
 
 int main(){
