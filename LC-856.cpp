@@ -18,7 +18,7 @@ int scoreOfParanthese(string s){
 }
 
 int main(){
-    string s = "((()))";
+    string s = "(()(()))";
     int ans = scoreOfParanthese(s);
     cout<<ans;
 }
