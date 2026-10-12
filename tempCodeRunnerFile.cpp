@@ -1,5 +1,3 @@
-while(totalDays >= 6){
-        totalDays = totalDays % 7;
-        cout<<totalDays<<endl;
-    }
-    cout<<totalDays<<endl;
+if(min1 < min2 && max1 < max2){
+
+    // }
