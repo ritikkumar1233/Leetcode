@@ -12,8 +12,16 @@ int countDaysTogether(string arriveAlice, string leaveAlice, string arriveBob, s
     int lAM = stoi(leaveAlice.substr(0,2));
     int aBM = stoi(arriveBob.substr(0,2));
     int lBM = stoi(leaveBob.substr(0,2));
+
+    int aAD = stoi(arriveAlice.substr(3,2));
+    int lAD = stoi(leaveAlice.substr(3,2));
+    int aBD = stoi(arriveBob.substr(3,2));
+    int lBD= stoi(leaveBob.substr(3,2));
     if(lAM < aBM || lBM < aAM){
         return 0;
+    }
+    if(aAM > aBM && lAM > lBM){
+        if()
     }
     return -1;
 }
