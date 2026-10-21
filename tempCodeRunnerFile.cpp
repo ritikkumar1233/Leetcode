@@ -1,1 +1,1 @@
- mini += b + '0';
+cout<<num<<endl;
