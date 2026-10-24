@@ -6,11 +6,25 @@
 using namespace std;
 
 int countSymmetricIntegers(int low, int high){
-
+    int count = 0;
+    for (int i = low; i <= high; i++) {
+        if (i > 10 && i <= 99 && i % 11 == 0)
+            count++;
+        if (i >= 1000 && i <= 9999){
+            int first = i / 1000;
+            int second = (i / 100) % 10;
+            int third = (i / 10) % 10;
+            int fourth = i % 10;
+            if (first + second == third + fourth)
+                count++;
+        }
+    }
+    return count;
 }
 
 int main(){
     int low = 1;
-    int high = 100;
+    int high = 1230;
     int ans =  countSymmetricIntegers(low, high);
+    cout<<ans;
 }
